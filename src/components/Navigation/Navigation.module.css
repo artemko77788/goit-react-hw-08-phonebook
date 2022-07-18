@@ -1,0 +1,25 @@
+.list {
+  margin: auto 20px auto;
+  display: flex;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.6);
+  background-color: rgba(68, 68, 68, 0.5);
+  width: 700px;
+  border-radius: 5px;
+}
+
+.item {
+  margin-bottom: 10px;
+  list-style: none;
+  flex-direction: row;
+}
+
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 30px;
+  color: rgb(121, 121, 121);
+}
