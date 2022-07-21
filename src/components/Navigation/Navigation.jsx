@@ -13,7 +13,17 @@ const Navigation = () => {
           </li>
           <li className={s.item}>
             <NavLink className={s.link} to="/contacts">
-              Movies
+              Contacts
+            </NavLink>
+          </li>
+          <li className={s.item}>
+            <NavLink className={s.link} to="/register">
+              Register
+            </NavLink>
+          </li>
+          <li className={s.item}>
+            <NavLink className={s.link} to="/login">
+              Login
             </NavLink>
           </li>
         </ul>

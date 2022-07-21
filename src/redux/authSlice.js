@@ -21,32 +21,21 @@ const axiosBaseQuery = ({ baseUrl } = { baseUrl: '' }) => async ({
   }
 };
 
-export const contactsApi = createApi({
-  reducerPath: 'contacts',
+export const authApi = createApi({
+  tagTypes: ['Post'],
+  reducerPath: 'auth',
   baseQuery: axiosBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/',
   }),
-  tagTypes: ['Contacts'],
   endpoints: builder => ({
-    getContacts: builder.query({
-      query: () => ({ url: `contacts`, method: 'GET' }),
-      providesTags: ['Contacts'],
-    }),
-
-    addContact: builder.mutation({
-      query: value => ({ url: 'contacts', method: 'POST', body: value }),
-      invalidatesTags: ['Contacts'],
-    }),
-
-    deleteContact: builder.mutation({
-      query: id => ({ url: `contacts/${id}`, method: 'DELETE' }),
-      invalidatesTags: ['Contacts'],
+    login: builder.mutation({
+      query: form => ({
+        url: `users/signup`,
+        method: 'POST',
+        body: { ...form },
+      }),
     }),
   }),
 });
 
-export const {
-  useGetContactsQuery,
-  useAddContactMutation,
-  useDeleteContactMutation,
-} = contactsApi;
+export const { useLoginMutation } = authApi;

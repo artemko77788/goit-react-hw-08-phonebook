@@ -3,8 +3,8 @@ import Contacts from 'components/Contacts';
 import Filter from 'components/Filter';
 import Section from 'components/Section';
 
-import s from './MoviesList.module.css';
-function MoviesList() {
+import s from './ContactsPage.module.css';
+function ContactsPage() {
   return (
     <>
       <Section>
@@ -18,6 +18,6 @@ function MoviesList() {
     </>
   );
 }
-MoviesList.propTypes = {};
+ContactsPage.propTypes = {};
 
-export default MoviesList;
+export default ContactsPage;
