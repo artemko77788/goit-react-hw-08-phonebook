@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-
 import { useLoginMutation } from 'redux/authSlice';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
@@ -29,8 +28,9 @@ const RegisterMenu = () => {
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
+      console.log(form);
 
-      login({ form });
+      login(form);
       setform({ name: '', email: '', password: '' });
     },
     [form, login]
@@ -56,7 +56,7 @@ const RegisterMenu = () => {
             name="name"
             required
             id="standard-required"
-            label="Required"
+            label="Name"
             variant="standard"
             value={form.name}
           />
@@ -66,7 +66,7 @@ const RegisterMenu = () => {
             onChange={onChange}
             required
             id="standard-required"
-            label="Required"
+            label="Email"
             variant="standard"
             type="email"
           />

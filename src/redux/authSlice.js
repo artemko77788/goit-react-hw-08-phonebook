@@ -22,17 +22,17 @@ const axiosBaseQuery = ({ baseUrl } = { baseUrl: '' }) => async ({
 };
 
 export const authApi = createApi({
-  tagTypes: ['Post'],
   reducerPath: 'auth',
   baseQuery: axiosBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
+    baseUrl: 'https://connections-api.herokuapp.com',
   }),
+  tagTypes: ['Post'],
   endpoints: builder => ({
     login: builder.mutation({
       query: form => ({
-        url: `users/signup`,
-        method: 'POST',
-        body: { ...form },
+        url: `/users/signup`,
+        method: 'post',
+        body: form,
       }),
     }),
   }),
