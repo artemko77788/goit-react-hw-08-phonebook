@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+
 import { useLoginMutation } from 'redux/authSlice';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
@@ -8,7 +8,7 @@ import { useCallback } from 'react';
 import Container from '@mui/material/Container';
 
 const RegisterMenu = () => {
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const [form, setform] = useState({
     name: '',
