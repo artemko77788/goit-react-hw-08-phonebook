@@ -6,17 +6,7 @@
   width: 700px;
   border-radius: 5px;
   justify-content: center;
-}
-
-.item {
-  margin-left: 10px;
-  margin-bottom: 10px;
-  list-style: none;
-  flex-direction: row;
-}
-
-.item:not(:last-child) {
-  margin-right: 20px;
+  align-items: baseline;
 }
 
 .link {

@@ -5,14 +5,13 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useCallback } from 'react';
 import Container from '@mui/material/Container';
-import { register } from 'redux/authOperations';
+import { logIn } from 'redux/authOperations';
 import { useDispatch } from 'react-redux';
 
-const RegisterMenu = () => {
+const LoginUser = () => {
   const dispatch = useDispatch();
 
   const [form, setform] = useState({
-    name: '',
     email: '',
     password: '',
   });
@@ -31,15 +30,14 @@ const RegisterMenu = () => {
     e => {
       e.preventDefault();
       dispatch(
-        register({
+        logIn({
           email: form.email,
-          name: form.name,
           password: form.password,
         })
       );
-      setform({ name: '', email: '', password: '' });
+      setform({ email: '', password: '' });
     },
-    [dispatch, form.email, form.name, form.password]
+    [dispatch, form.email, form.password]
   );
 
   return (
@@ -54,18 +52,6 @@ const RegisterMenu = () => {
         }}
       >
         <form onSubmit={onSubmit}>
-          <TextField
-            onChange={onChange}
-            sx={{
-              color: 'orange',
-            }}
-            name="name"
-            required
-            id="standard-required"
-            label="Name"
-            variant="standard"
-            value={form.name}
-          />
           <TextField
             value={form.email}
             name="email"
@@ -98,4 +84,4 @@ const RegisterMenu = () => {
   );
 };
 
-export default RegisterMenu;
+export default LoginUser;

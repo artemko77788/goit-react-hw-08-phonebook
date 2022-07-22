@@ -12,18 +12,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { authApi } from './authSlice';
+
+import authSlise from './authSlice';
 
 const reducers = combineReducers({
   [contactsApi.reducerPath]: contactsApi.reducer,
   [contactFilter.name]: contactFilter.reducer,
-  [authApi.reducerPath]: authApi.reducer,
+  auth: authSlise,
 });
 
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  // whitelist: ['token'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -36,7 +37,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(contactsApi.middleware, authApi.middleware),
+    }).concat(contactsApi.middleware),
   devTools: true,
 });
 

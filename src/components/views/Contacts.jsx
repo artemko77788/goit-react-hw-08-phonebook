@@ -1,9 +1,9 @@
-import MoviesList from 'components/ContactsPage';
+import ContactsPage from 'components/ContactsPage';
 
 const Movies = () => {
   return (
     <>
-      <MoviesList />
+      <ContactsPage />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import Navigation from '../Navigation';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NoSuchPage from 'components/views/NoSuchPage';
@@ -7,6 +6,7 @@ import s from './App.module.css';
 import Movies from 'components/views/Contacts';
 import Register from 'components/views/Register';
 import Login from 'components/views/Login';
+import Navigation from 'components/Navigation';
 
 const Home = lazy(() => import('components/views/Home'));
 
