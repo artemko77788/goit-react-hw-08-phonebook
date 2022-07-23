@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useCallback } from 'react';
 import Container from '@mui/material/Container';
-import { register } from 'redux/authOperations';
+import { authOperations } from 'redux/authOperations';
 import { useDispatch } from 'react-redux';
 
 const RegisterMenu = () => {
@@ -31,7 +31,7 @@ const RegisterMenu = () => {
     e => {
       e.preventDefault();
       dispatch(
-        register({
+        authOperations.register({
           email: form.email,
           name: form.name,
           password: form.password,

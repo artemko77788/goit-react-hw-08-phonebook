@@ -47,7 +47,7 @@
 // export const { useLoginMutation } = authApi;
 
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, register } from './authOperations';
+import { authOperations } from './authOperations';
 
 const initialState = {
   user: {
@@ -63,12 +63,12 @@ const authSlise = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [register.fulfilled](state, action) {
+    [authOperations.register.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    [logIn.fulfilled](state, action) {
+    [authOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;

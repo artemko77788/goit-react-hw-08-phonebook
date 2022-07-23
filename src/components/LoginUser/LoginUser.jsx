@@ -5,39 +5,36 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useCallback } from 'react';
 import Container from '@mui/material/Container';
-import { logIn } from 'redux/authOperations';
+import { authOperations } from 'redux/authOperations';
 import { useDispatch } from 'react-redux';
 
 const LoginUser = () => {
   const dispatch = useDispatch();
 
-  const [form, setform] = useState({
+  const [user, setUser] = useState({
     email: '',
     password: '',
   });
 
   const onChange = useCallback(
     e => {
-      setform(prev => ({
+      setUser(prev => ({
         ...prev,
         [e.target.name]: e.target.value,
       }));
     },
-    [setform]
+    [setUser]
   );
 
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
       dispatch(
-        logIn({
-          email: form.email,
-          password: form.password,
-        })
+        authOperations.logIn({ email: user.email, password: user.password })
       );
-      setform({ email: '', password: '' });
+      setUser({ email: '', password: '' });
     },
-    [dispatch, form.email, form.password]
+    [dispatch, user]
   );
 
   return (
@@ -53,7 +50,7 @@ const LoginUser = () => {
       >
         <form onSubmit={onSubmit}>
           <TextField
-            value={form.email}
+            value={user.email}
             name="email"
             onChange={onChange}
             required
@@ -64,7 +61,7 @@ const LoginUser = () => {
           />
 
           <TextField
-            value={form.password}
+            value={user.password}
             name="password"
             onChange={onChange}
             required

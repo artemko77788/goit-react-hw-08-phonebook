@@ -3,10 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import NoSuchPage from 'components/views/NoSuchPage';
 import { ToastContainer } from 'react-toastify';
 import s from './App.module.css';
-import Movies from 'components/views/Contacts';
+import Contacts from 'components/views/Contacts';
 import Register from 'components/views/Register';
 import Login from 'components/views/Login';
-import Navigation from 'components/Navigation';
+
+import AppBar from 'components/Navigation/AppBar/appBar';
 
 const Home = lazy(() => import('components/views/Home'));
 
@@ -16,9 +17,9 @@ export const App = () => {
       <ToastContainer autoClose={1500} />
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<AppBar />}>
             <Route index exact element={<Home />} />
-            <Route path="contacts" element={<Movies />} />
+            <Route path="contacts" element={<Contacts />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="*" element={<NoSuchPage />} />
