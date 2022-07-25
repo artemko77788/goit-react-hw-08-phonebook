@@ -73,7 +73,7 @@ const LoginUser = () => {
           />
 
           <Button type="submit" variant="contained">
-            Primary
+            Login
           </Button>
         </form>
       </Paper>

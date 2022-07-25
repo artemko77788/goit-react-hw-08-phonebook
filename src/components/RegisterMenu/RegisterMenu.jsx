@@ -90,7 +90,7 @@ const RegisterMenu = () => {
           />
 
           <Button type="submit" variant="contained">
-            Primary
+            Registrate
           </Button>
         </form>
       </Paper>
