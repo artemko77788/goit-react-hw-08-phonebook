@@ -7,6 +7,7 @@ import { SpinnerRoundOutlined } from 'spinners-react';
 import { filteredContacts, getFilter } from 'redux/contactsSelectors';
 import { useSelector } from 'react-redux';
 import s from './Contacts.module.css';
+import { Paper } from '@mui/material';
 
 const Contacts = () => {
   const [deleteUser, result] = useDeleteContactMutation();
@@ -22,29 +23,40 @@ const Contacts = () => {
 
   return (
     <div>
-      {error && <p>Somesing wrong</p>}
+      <Paper
+        elevation={3}
+        sx={{
+          backgroundColor: '#ffffff78',
+          padding: '10px',
+          marginTop: '20px',
+        }}
+      >
+        {error && <p>No contacts</p>}
 
-      {isLoading || result.isLoading ? (
-        <SpinnerRoundOutlined className={s.spiner} />
-      ) : (
-        <ul className={s.list}>
-          {filteredData?.map(({ name, id, number }) => {
-            return (
-              <li key={id} className={s.item}>
-                <span>{name}</span>: <span>{number}</span>
-                <button
-                  key={id}
-                  onClick={() => deleteUser(id)}
-                  className={s.btn}
-                >
-                  <BiArrowBack className={s.arrow} />
-                  <GrBasket />
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+        {isLoading || result.isLoading ? (
+          <SpinnerRoundOutlined className={s.spiner} />
+        ) : (
+          <ul className={s.list}>
+            {filteredData?.map(({ name, id, number }) => {
+              return (
+                <li key={id} className={s.item}>
+                  <div className={s.text}>
+                    <span>{name}</span>: <span>{number}</span>
+                  </div>
+                  <button
+                    key={id}
+                    onClick={() => deleteUser(id)}
+                    className={s.btn}
+                  >
+                    <BiArrowBack className={s.arrow} />
+                    <GrBasket />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </Paper>
     </div>
   );
 };

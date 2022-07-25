@@ -1,15 +1,15 @@
-.list {
-  position: relative;
-  width: 400px;
-}
-
 .item {
+  min-width: 200px;
   font-size: 18px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.item:last-child {
+  margin-bottom: 0;
 }
 
 .btn {
-  position: absolute;
   right: 10px;
   cursor: pointer;
   border-radius: 5px;
@@ -20,14 +20,13 @@
   background-color: rgba(212, 18, 18, 0.5);
 }
 .arrow {
-  fill: rgb(69, 69, 69);
+  fill: rgb(255, 255, 255);
   transform: rotate(180deg);
   margin-right: 10px;
   right: 5px;
 }
 
 .spiner {
-  position: absolute;
   right: 20%;
   top: 300px;
 }

@@ -10,7 +10,6 @@ export const filteredContacts = createSelector(
 
   (contacts, filterValue) => {
     return (
-      console.log(contacts),
       contacts?.filter(({ name }) =>
         name.toLowerCase().startsWith(filterValue)
       ) ?? []

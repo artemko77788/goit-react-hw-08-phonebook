@@ -13,9 +13,13 @@
   display: block;
   height: 25px;
   width: 200px;
-  background-color: transparent;
+  background-color: rgba(236, 236, 236, 0.112);
+  border-radius: 5px;
+  color: rgb(63, 63, 63);
+  font-weight: 600;
+  font-size: 20px;
 }
 .input:focus {
-  background-color: rgba(236, 236, 236, 0.112);
+  background-color: #ffffff78;
   border-radius: 5px;
 }

@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useAddContactMutation, useGetContactsQuery } from 'redux/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Paper } from '@mui/material';
 
 function ContactForm() {
   const [addContact] = useAddContactMutation();
@@ -36,55 +37,64 @@ function ContactForm() {
   };
 
   const SignupSchema = Yup.object().shape({
-    name: Yup.string().required(<p class={s.errorMasage}>Enter your Name</p>),
+    name: Yup.string().required(
+      <p className={s.errorMasage}>Enter your Name</p>
+    ),
     number: Yup.number().required(
-      <p class={s.errorMasage}>Enter your Number</p>
+      <p className={s.errorMasage}>Enter your Number</p>
     ),
   });
 
   return (
-    <Formik
-      initialValues={{ name: '', number: '' }}
-      onSubmit={handleAddContact}
-      className={s.form}
-      validationSchema={SignupSchema}
+    <Paper
+      elevation={3}
+      sx={{
+        backgroundColor: '#ffffff78',
+        padding: '10px 30px',
+        marginTop: '20px',
+      }}
     >
-      <Form>
-        <label htmlFor="name" className={s.label}>
-          Name:
-        </label>
-        <div>
-          <ErrorMessage name="name" />
-        </div>
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        onSubmit={handleAddContact}
+        className={s.form}
+        validationSchema={SignupSchema}
+      >
+        <Form>
+          <label htmlFor="name" className={s.label}>
+            Name:
+          </label>
+          <div>
+            <ErrorMessage name="name" />
+          </div>
 
-        <Field
-          placeholder={'Enter your  Name'}
-          className={s.input}
-          type="text"
-          name="name"
-        />
+          <Field
+            placeholder={'Enter your  Name'}
+            className={s.input}
+            type="text"
+            name="name"
+          />
 
-        <label htmlFor="number" className={s.label}>
-          <></>
+          <label htmlFor="number" className={s.label}>
+            <p>Number:</p>
+          </label>
+          <div>
+            <ErrorMessage name="number" />
+          </div>
 
-          <p>Number:</p>
-        </label>
-        <div>
-          <ErrorMessage name="number" />
-        </div>
+          <Field
+            placeholder={'Enter your  Number'}
+            className={s.input}
+            type="tel"
+            name="number"
+          />
 
-        <Field
-          placeholder={'Enter your  Number'}
-          className={s.input}
-          type="tel"
-          name="number"
-        />
-
-        <button type="submit" className={s.btn}>
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+          <button type="submit" className={s.btn}>
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+    </Paper>
   );
 }
 

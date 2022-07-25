@@ -59,7 +59,6 @@ body {
 }
 
 html {
-  --color-text: rgb(69, 69, 69);
   --background-color: #eeeeee82;
   --shadow: 0 0 20px 5px rgba(127, 85, 7, 0.3);
 }

@@ -9,6 +9,7 @@ const axiosBaseQuery = ({ baseUrl } = { baseUrl: '' }) => async ({
 }) => {
   try {
     const result = await axios({ url: baseUrl + url, method, data, params });
+
     return { data: result.data };
   } catch (axiosError) {
     let err = axiosError;
@@ -24,22 +25,23 @@ const axiosBaseQuery = ({ baseUrl } = { baseUrl: '' }) => async ({
 export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: axiosBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
+    baseUrl: 'https://connections-api.herokuapp.com',
   }),
   tagTypes: ['Contacts'],
   endpoints: builder => ({
     getContacts: builder.query({
-      query: () => ({ url: `contacts`, method: 'GET' }),
+      query: () => ({ url: `/contacts`, method: 'GET' }),
       providesTags: ['Contacts'],
     }),
 
     addContact: builder.mutation({
-      query: value => ({ url: 'contacts', method: 'POST', body: value }),
+      query: value => ({ url: '/contacts', method: 'POST', data: value }),
+
       invalidatesTags: ['Contacts'],
     }),
 
     deleteContact: builder.mutation({
-      query: id => ({ url: `contacts/${id}`, method: 'DELETE' }),
+      query: id => ({ url: `/contacts/${id}`, method: 'DELETE' }),
       invalidatesTags: ['Contacts'],
     }),
   }),
