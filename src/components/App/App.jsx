@@ -29,9 +29,6 @@ export const App = () => {
           <Route path="/" element={<AppBar />}>
             <Route index exact element={<Home />} />
 
-            {/* <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} /> */}
-
             <Route
               restricted
               path="login"
