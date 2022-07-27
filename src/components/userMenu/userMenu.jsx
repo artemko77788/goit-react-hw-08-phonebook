@@ -1,4 +1,4 @@
-import s from './userMenu.module.css';
+import s from './UserMenu.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations } from 'redux/authOperations';
 import { getUser } from 'redux/contactsSelectors';

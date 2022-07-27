@@ -5,10 +5,11 @@ import NoSuchPage from 'components/views/NoSuchPage';
 import { ToastContainer } from 'react-toastify';
 import s from './App.module.css';
 import { authOperations } from 'redux/authOperations';
-import AppBar from 'components/Navigation/AppBar/appBar';
+
 import { useDispatch } from 'react-redux';
 import PrivateRoute from 'components/PrivateRoute';
-import PublicRoute from 'components/PablicRoute';
+import PublicRoute from 'components/PublicRoute';
+import AppBar from 'components/Navigation/AppBar';
 
 const Home = lazy(() => import('components/views/Home'));
 const Contacts = lazy(() => import('components/views/Contacts'));
@@ -30,20 +31,18 @@ export const App = () => {
             <Route index exact element={<Home />} />
 
             <Route
-              restricted
               path="login"
               element={
-                <PublicRoute>
+                <PublicRoute restricted>
                   <Login />
                 </PublicRoute>
               }
             />
 
             <Route
-              restricted
               path="register"
               element={
-                <PublicRoute>
+                <PublicRoute restricted>
                   <Register />
                 </PublicRoute>
               }

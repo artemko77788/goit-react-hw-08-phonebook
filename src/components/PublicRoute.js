@@ -8,6 +8,8 @@ export default function PublicRoute({
   ...routeProps
 }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
+
   const shouldREdirected = isLoggedIn && restricted;
-  return shouldREdirected ? <Navigate to="/" /> : children;
+
+  return shouldREdirected ? <Navigate to="/contacts" /> : children;
 }
